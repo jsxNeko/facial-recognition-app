@@ -126,15 +126,25 @@ class App extends Component {
 						</div>
 					: 
 						(
-							route === 'profile' ? <Profile loadUser={this.loadUser} user={this.state.user} onRouteChange={this.onRouteChange}/> :
+							route === 'profile' ?
+							<div>
+								<Profile loadUser={this.loadUser} user={this.state.user} onRouteChange={this.onRouteChange}/>
+								<Footer />
+							</div>
+							:
 							(route === 'register' ? 
-								<Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+								<div>
+									<Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+									<Footer />
+								</div>
 								:
-								<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+								<div>
+									<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+									<Footer />
+								</div>
 							)
 						)    
 				}
-				<Footer />
 				<div className='alertBox' style={{display:'none'}}>
 					<div className="pa3 bg-black ba b--white">
 						<span className='alert-text white'></span>
