@@ -8,6 +8,7 @@ import SignIn from './components/SignIn/signIn';
 import Register from './components/Register/register';
 import Profile from './components/Profile/profile';
 import ParticlesBox from "./components/Particles/particles";
+import Footer from './components/Footer/footer';
 import {alertMe} from './components/Alert/alertBox';
 
 const initialState = {
@@ -133,6 +134,7 @@ class App extends Component {
 							)
 						)    
 				}
+				<Footer />
 				<div className='alertBox' style={{display:'none'}}>
 					<div className="pa3 bg-black ba b--white">
 						<span className='alert-text white'></span>

@@ -33,6 +33,15 @@
   width: 70vw;
 }
 
+.footer {
+    text-align: center;
+    position: relative;
+    clear: both;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
 .input-container {
   display: flex;
   width: 100%;
