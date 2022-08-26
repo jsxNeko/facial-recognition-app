@@ -82,8 +82,6 @@ class Profile extends React.Component {
 		if(passwordChange === '' || passwordChange.length === 0) password = '';
 		if(confirmPasswordChange === '' || confirmPasswordChange.length === 0) confirm_password = '';
 
-
-
 		fetch(`https://serenuy-face-api.herokuapp.com/profile/${user.id}`, {
 			method: 'POST',
 			headers: {'Content-Type':'application/json'},

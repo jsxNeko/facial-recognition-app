@@ -54,12 +54,14 @@ class register extends React.Component {
 			return res.json();
 		})
 		.then(user => {
-			if(user) {
+			if(user.error === undefined) {
 				alertMe('Successfully registered. Welcome!')
 				setTimeout(() => {
 					this.props.loadUser(user);
 					this.props.onRouteChange('home');
 				},1200);
+			} else {
+				alertMe(user.error)
 			}
 		})
 		.catch(err => {
