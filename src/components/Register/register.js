@@ -24,14 +24,6 @@ class register extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
-		const validateEmail = (email) => {
-		  return String(email)
-		    .toLowerCase()
-		    .match(
-		      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-		    );
-		};
-
 		fetch('https://serenuy-face-api.herokuapp.com/register', {
 		method: 'POST',
 		headers: {'Content-Type':'application/json'},
@@ -42,15 +34,6 @@ class register extends React.Component {
 			})
 		})
 		.then(res => {
-			if(this.state.name.length === 0) {
-				return alertMe('Name field is empty, please provide your name');
-			} else if (this.state.email.length === 0) {
-				return alertMe('Email field is empty, please provide your email');
-			} else if (this.state.password.length < 6) {
-				return alertMe('Please enter a password with 6 characters or more'); 
-			} else if (!validateEmail(this.state.email)) {
-				return alertMe('Email is not valid. Please enter a valid email.');
-			}
 			return res.json();
 		})
 		.then(user => {
@@ -65,7 +48,7 @@ class register extends React.Component {
 			}
 		})
 		.catch(err => {
-			alertMe('Something went wrong')
+			alertMe('Something Went Wrong')
 		})	
 	}
 
