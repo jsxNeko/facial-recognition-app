@@ -1,12 +1,17 @@
+// This is what appears above the background color
+// Particles JS
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import React from 'react';
 
 const ParticlesBox = () => {
-     const particlesInit = async (main) => {
+  // Implement particlesInit in order to allow the particles to load
+  // Without this, the particles will not appear
+    const particlesInit = async (main) => {
       await loadFull(main);
     };
 
+    // Particles Customization
     const options = {   
       fpsLimit: 60,
       interactivity: {
@@ -80,6 +85,7 @@ const ParticlesBox = () => {
       detectRetina: true,
   }
 
+  // Return the particles as a component with the parameters
     return(
       <Particles
       className='particles'

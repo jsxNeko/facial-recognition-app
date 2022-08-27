@@ -12,6 +12,8 @@ class signIn extends React.Component {
 
 	}
 
+	// Watch for email and password changes
+	// update states to values accordingly
 	onEmailChange = (event) => {
 		this.setState({signInEmail: event.target.value})
 	}
@@ -21,7 +23,6 @@ class signIn extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
-
 		fetch('https://serenuy-face-api.herokuapp.com/signin', {
 			method: 'POST',
 			headers: {'Content-Type':'application/json'},
@@ -34,10 +35,13 @@ class signIn extends React.Component {
 			return res.json();
 		})
 		.then(user => {
+			// if there is no user error
+			// load user data and send to homepage
 			if(user.id !== undefined) {
 				this.props.loadUser(user)
 				this.props.onRouteChange('home');
 			} else if(user.error !== undefined) {
+				// display error
 				alertMe(user.error)
 			}
 		})

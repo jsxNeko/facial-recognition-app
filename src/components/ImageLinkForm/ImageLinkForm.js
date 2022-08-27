@@ -1,3 +1,5 @@
+// This is the form on the homepage after logging in or registering
+// Where the user can enter a URL into the input field
 import React from 'react';
 import './ImageLinkForm.css';
 

@@ -32,6 +32,7 @@ class App extends Component {
 		this.state = initialState;
 	}
 
+	// Load users information when data given
 	loadUser = (user) => {
 		this.setState({
 			user: {
@@ -43,11 +44,14 @@ class App extends Component {
 		}})
 	}
 
+	// Calculate faces of picture given
 	calculateFaceLocation = (data) => {
 	 const clarifaiFaceEach = data.outputs[0].data.regions;
 	 const image = document.getElementById('input-image');
 	 const width = Number(image.width);
 	 const height = Number(image.height);
+	 // Based off of how many faces were found is how many times mapped
+	 // set the values accordingly to get the measurements
 	 const each_box = clarifaiFaceEach.map((area) => {
 			 return ({
 				leftCol: area.region_info.bounding_box.left_col * width,
@@ -59,15 +63,18 @@ class App extends Component {
 	 return each_box;
 	}
 
+	// set box measurements from calculateFaceLocation
 	displayFaceBox = (box) => {
 		this.setState({box: box})
 	}
 
+	// listen for URLs typed into the input field
 	onInputChange = (event) => {
 		this.setState({input: event.target.value});
 	}
 
 	onImageSubmit = () => {
+		// send the information gathered from the calculation and the input
 		this.setState({imageUrl: this.state.input})
 		fetch('https://serenuy-face-api.herokuapp.com/imageurl', {
 			method: 'POST',
@@ -97,6 +104,7 @@ class App extends Component {
 		})
 	}
 
+	// Updates route based on loadUser and buttons clicked 
 	onRouteChange = (route) => {
 		if(route === 'signout') {
 			this.setState(initialState)
@@ -112,6 +120,7 @@ class App extends Component {
 	}
 
 	render() {
+		// Return render based on if the user is signed in and/or going to a different route
 		const {isSignedIn, imageUrl, route, box } = this.state;
 		return (
 				<div className="App">

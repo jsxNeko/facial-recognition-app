@@ -1,3 +1,5 @@
+// Navigation bar
+// Allows user to navigation to routes
 import React from 'react';
 import Logo from '../Logo/logo';
 

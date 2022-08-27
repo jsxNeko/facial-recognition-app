@@ -1,3 +1,4 @@
+// Where the user will register for an account interface
 import React from 'react';
 import {alertMe} from '../Alert/alertBox';
 
@@ -11,6 +12,8 @@ class register extends React.Component {
 		}
 	}
 
+	// When the user makes changes to the name, email and password field
+	// Store the value into the state
 	onNameChange = (event) => {
 		this.setState({name: event.target.value})
 	}
@@ -23,6 +26,8 @@ class register extends React.Component {
 		this.setState({password: event.target.value})
 	}
 
+	// On submit to sign in
+	// Fetch register from server-side
 	onSubmitSignIn = () => {
 		fetch('https://serenuy-face-api.herokuapp.com/register', {
 		method: 'POST',
@@ -37,17 +42,22 @@ class register extends React.Component {
 			return res.json();
 		})
 		.then(user => {
+			// If there is no error to be found, continue on
 			if(user.error === undefined) {
 				alertMe('Successfully registered. Welcome!')
 				setTimeout(() => {
+					// Load the users data in the main state
 					this.props.loadUser(user);
+					// Send the user to the homepage with the right permission
 					this.props.onRouteChange('home');
 				},1200);
 			} else {
+				// If there is an error, show the alert prompt with error message
 				alertMe(user.error)
 			}
 		})
 		.catch(err => {
+			// If there was an error with fetching data
 			alertMe('Something Went Wrong')
 		})	
 	}

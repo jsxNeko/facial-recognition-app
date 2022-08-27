@@ -1,3 +1,5 @@
+// This page allows the user to edit their profile information/settings
+// User can update or delete their account with validation
 import React from 'react';
 import Modal from 'react-modal';
 import {alertMe} from '../Alert/alertBox';
@@ -13,19 +15,23 @@ class Profile extends React.Component {
 			deletePassword: '',
 			showModal: false
 		}
-
+		// Bind the modal to the open and close handle
 		this.handleOpenModal = this.handleOpenModal.bind(this);
 		this.handleCloseModal = this.handleCloseModal.bind(this);
 	}
 
+	// Show modal when the 'Delete Account' is clicked
 	handleOpenModal = () => {
 		this.setState({showModal: true});
 	}
 
+	// Close modal when the 'X' button is clicked
 	handleCloseModal = () => {
 		this.setState({showModal: false});
 	}
 
+	// Listen for email, password, confirm password, and name changes in the fields
+	// Set states according to values
 	onEmailChange = (event) => {
 		this.setState({emailChange: event.target.value})
 	}
@@ -46,6 +52,7 @@ class Profile extends React.Component {
 		this.setState({deletePassword: event.target.value})
 	}
 
+	// On account delete, send the users data to the back-end for validation
 	onDeleteSubmit = () => {
 		let {user, onRouteChange} = this.props;
 		fetch(`https://serenuy-face-api.herokuapp.com/profile/${user.id}`, {
@@ -59,9 +66,11 @@ class Profile extends React.Component {
 		})
 		.then(res => res.json())
 		.then(data => {
+			// If error occurrs when attempting to delete, prompt the alertbox for more details
 			if(data.error !== undefined) {
 				return alertMe(data.error)
 			} else {
+				// If delete is successfully, reroute user to the sign in page
 				alertMe('Account deleted successfully.')
 				onRouteChange('signout');
 			}
@@ -77,11 +86,13 @@ class Profile extends React.Component {
 		let password = passwordChange;
 		let confirm_password = confirmPasswordChange;
 
+		// Pre-validation before fetching
 		if(nameChange === '' || nameChange.length === 0) name = user.name
 		if(emailChange === '' || emailChange.length === 0) email = user.email
 		if(passwordChange === '' || passwordChange.length === 0) password = '';
 		if(confirmPasswordChange === '' || confirmPasswordChange.length === 0) confirm_password = '';
 
+		// Send users information
 		fetch(`https://serenuy-face-api.herokuapp.com/profile/${user.id}`, {
 			method: 'POST',
 			headers: {'Content-Type':'application/json'},
@@ -100,6 +111,8 @@ class Profile extends React.Component {
 			return res.json()
 		})
 		.then(userData => {
+			// If there is an error, display the error in alertbox
+			// or display success and reroute user to homepage with userData loaded
 			if(userData.error !== undefined) { 
 				alertMe(userData.error)
 			} else if(userData.id !== undefined){

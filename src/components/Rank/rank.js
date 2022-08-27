@@ -1,3 +1,4 @@
+// The rank interface shows how many entries the user has from uploading and detecting images
 import React from 'react';
 
 const Rank = ({name, entries}) => {

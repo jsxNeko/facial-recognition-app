@@ -1,3 +1,4 @@
+// Beta logo for navigation bar
 import React from 'react';
 import Tilty from 'react-tilty';
 
