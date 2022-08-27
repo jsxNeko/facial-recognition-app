@@ -3,9 +3,9 @@ import React from 'react';
 const Footer = () => {
 	return (
 		<div className='footer'>
-			<p class="text-uppercase black link">© <a 
+			<p className="text-uppercase black link">© <a 
 				href='https://github.com/serenuy/facial-recognition-app'
-				style={{'text-decoration':'none'}}>
+				style={{'textDecoration':'none'}}>
 				Serenuy/@github</a> 
 			<script>document.write(new Date().getFullYear())</script>
 			</p>
