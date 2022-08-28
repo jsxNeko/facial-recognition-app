@@ -28,7 +28,7 @@ class register extends React.Component {
 
 	// On submit to sign in
 	// Fetch register from server-side
-	onSubmitSignIn = () => {
+	onSubmitRegister = () => {
 		fetch('https://serenuy-face-api.herokuapp.com/register', {
 		method: 'POST',
 		headers: {'Content-Type':'application/json'},
@@ -118,7 +118,7 @@ class register extends React.Component {
 					className="b ph3 pv2 input-reset ba b--black bg-black white grow pointer f6 dib" 
 					type="submit" 
 					value="Register" 
-					onClick={this.onSubmitSignIn}
+					onClick={this.onSubmitRegister}
 					/>
 				</div>
 				<div className="lh-copy mt3">
