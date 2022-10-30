@@ -23,7 +23,7 @@ class signIn extends React.Component {
 	}
 
 	onSubmitSignIn = () => {
-		fetch('https://serenuy-face-api.herokuapp.com/signin', {
+		fetch('https://jsxneko-face-recognition-api.herokuapp.com/signin', {
 			method: 'POST',
 			headers: {'Content-Type':'application/json'},
 			body: JSON.stringify({
