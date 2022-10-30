@@ -6,7 +6,7 @@ const Footer = () => {
 			<p className="text-uppercase black link">© <a 
 				href='https://github.com/jsxNeko/facial-recognition-app'
 				style={{'textDecoration':'none'}}>
-				Serenuy/@github</a> 
+				jsxNeko/@github</a> 
 			<script>document.write(new Date().getFullYear())</script>
 			</p>
 		</div>
