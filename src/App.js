@@ -76,7 +76,7 @@ class App extends Component {
 	onImageSubmit = () => {
 		// send the information gathered from the calculation and the input
 		this.setState({imageUrl: this.state.input})
-		fetch('https://serenuy-face-api.herokuapp.com/imageurl', {
+		fetch('https://jsxneko-face-recognition-api.herokuapp.com/imageurl', {
 			method: 'POST',
 			headers: {'Content-Type':'application/json'},
 			body: JSON.stringify({input: this.state.input})
@@ -84,7 +84,7 @@ class App extends Component {
 		.then(res => res.json())
 		.then(res => {
 			if(res) {
-				fetch('https://serenuy-face-api.herokuapp.com/image', {
+				fetch('https://jsxneko-face-recognition-api.herokuapp.com/image', {
 					method: 'PUT',
 					headers: {'Content-Type':'application/json'},
 					body: JSON.stringify({
