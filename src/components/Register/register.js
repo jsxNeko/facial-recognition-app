@@ -29,7 +29,7 @@ class register extends React.Component {
 	// On submit to sign in
 	// Fetch register from server-side
 	onSubmitRegister = () => {
-		fetch('https://serenuy-face-api.herokuapp.com/register', {
+		fetch('https://jsxneko-face-recognition-api.herokuapp.com/register', {
 		method: 'POST',
 		headers: {'Content-Type':'application/json'},
 		body: JSON.stringify({
