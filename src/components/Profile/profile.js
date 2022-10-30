@@ -55,7 +55,7 @@ class Profile extends React.Component {
 	// On account delete, send the users data to the back-end for validation
 	onDeleteSubmit = () => {
 		let {user, onRouteChange} = this.props;
-		fetch(`https://serenuy-face-api.herokuapp.com/profile/${user.id}`, {
+		fetch(`https://jsxneko-face-recognition-api.herokuapp.com/profile/${user.id}`, {
 			method: 'DELETE',
 			headers: {'Content-Type':'application/json'},
 			body: JSON.stringify({
@@ -93,7 +93,7 @@ class Profile extends React.Component {
 		if(confirmPasswordChange === '' || confirmPasswordChange.length === 0) confirm_password = '';
 
 		// Send users information
-		fetch(`https://serenuy-face-api.herokuapp.com/profile/${user.id}`, {
+		fetch(`https://jsxneko-face-recognition-api.herokuapp.com/profile/${user.id}`, {
 			method: 'POST',
 			headers: {'Content-Type':'application/json'},
 			body: JSON.stringify({
