@@ -3,7 +3,7 @@ This app was built using ReactJS and NodeJS.
 Check out the server-side if you want to see more of that code.
 
 ## Server
-https://github.com/jsxNeko/face-recognition-api
+https://github.com/pixelRena/face-recognition-api
 
 
 ## DEMO
