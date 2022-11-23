@@ -17,7 +17,7 @@
 * Tachyons
 
 ## Usage
-Since this is uploaded to heroku, be aware that heroku app sleeps when it is not active, if you are trying to log in to this app, give it a couple of seconds to load up tha backend/server when clicking the login action button.<br>
+<p>Since this is uploaded to heroku, be aware that heroku app sleeps when it is not active, if you are trying to log in to this app, give it a couple of seconds to load up tha backend/server when clicking the login action button.</p>
 If you want to try out the app, here's an account you can log in quickly and test with:
 
 Email: alden@email.com<br>
